@@ -15,7 +15,8 @@ export default function Home() {
           connectParams={{
             connectionUrl: "/api/offer",
           }}
-          noUserVideo
+          // Camera control will be visible but starts OFF by default
+          // Remove noUserVideo to show the camera toggle
         />
       </FullScreenContainer>
     </ThemeProvider>
