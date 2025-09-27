@@ -13,10 +13,12 @@ export default function Home() {
         <ConsoleTemplate
           transportType="smallwebrtc"
           connectParams={{
-            connectionUrl: "/api/offer",
+            webrtcUrl: "/api/offer",
           }}
-          // Camera control will be visible but starts OFF by default
-          // Remove noUserVideo to show the camera toggle
+          noUserVideo={true}
+          titleText="Mandi"
+          noLogo={true}
+          // noUserVideo={true} disables camera completely - no permission request
         />
       </FullScreenContainer>
     </ThemeProvider>

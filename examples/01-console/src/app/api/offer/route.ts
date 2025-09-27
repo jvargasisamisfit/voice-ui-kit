@@ -10,7 +10,6 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.BOT_START_PUBLIC_API_KEY}`,
       },
       body: JSON.stringify(body),
     });
@@ -23,11 +22,8 @@ export async function POST(request: NextRequest) {
     // Get the JSON response
     const data = await response.json();
 
-    // Return the complete JSON response
-    return NextResponse.json({
-        room_url: data.dailyRoom,
-        token: data.dailyToken,
-    });
+    // Return the complete JSON response directly
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Error in offer API route:', error);
     return NextResponse.json(

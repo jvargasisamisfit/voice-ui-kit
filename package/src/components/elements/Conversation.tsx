@@ -164,7 +164,7 @@ export const Conversation: React.FC<ConversationProps> = memo(
         >
           <div
             className={cn(
-              "grid grid-cols-[min-content_1fr] gap-x-4 gap-y-2",
+              "flex flex-col gap-4",
               classNames.message,
             )}
           >
