@@ -65,10 +65,10 @@ A complete voice AI application with both backend (Pipecat) and frontend (Voice 
 
 ```bash
 # Run the voice AI backend with WebRTC transport
-uv run custom_bot.py -t webrtc
+uv run bot.py -t webrtc
 ```
 
-The backend will start on http://localhost:7860
+The backend will start on http://localhost:7860 with RTVI protocol support
 
 ### 2. Access the Voice Interface
 
@@ -85,7 +85,7 @@ http://localhost:7860/client
 
 ## Alternative: Voice UI Kit Frontend
 
-For a more advanced UI, you can also run the Voice UI Kit frontend:
+For a more advanced UI with the custom Voice UI Kit frontend:
 
 ```bash
 # In a new terminal
@@ -94,7 +94,10 @@ npm run dev
 
 Then open http://localhost:3000 in your browser.
 
-**Note**: The Voice UI Kit frontend requires additional configuration to work with the Small WebRTC transport.
+The Voice UI Kit frontend works seamlessly with the SmallWebRTC transport and RTVI protocol for:
+- Real-time message display in the conversation area
+- Proper agent status updates
+- Complete integration between frontend and backend
 
 ## How It Works
 
@@ -109,14 +112,14 @@ When you connect:
 
 ```
 01-console/
-├── custom_bot.py           # Pipecat backend server
+├── bot.py                 # Pipecat backend with RTVI support
 ├── .env                    # API keys and configuration
 ├── .env.local             # Frontend environment variables
 ├── pyproject.toml         # Python dependencies
 ├── package.json           # Node.js dependencies
 ├── src/
 │   └── app/
-│       ├── page.tsx       # Main React component
+│       ├── page.tsx       # Main React component (Voice UI Kit)
 │       └── api/
 │           └── offer/     # WebRTC connection endpoint
 └── README.md             # This file
@@ -124,7 +127,7 @@ When you connect:
 
 ## Customization
 
-### Backend (custom_bot.py)
+### Backend (bot.py)
 
 - **Change the AI personality**: Modify the system prompt in the `messages` array
 - **Adjust voice settings**: Change the `voice_id` in CartesiaTTSService
